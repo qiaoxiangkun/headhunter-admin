@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.PortalSemMapper">
+    
+    <resultMap type="PortalSem" id="PortalSemResult">
+        <result property="semId"    column="sem_id"    />
+        <result property="netSemId"    column="net_sem_id"    />
+        <result property="mobileNumber"    column="mobile_number"    />
+        <result property="gender"    column="gender"    />
+        <result property="hopePosition"    column="hope_position"    />
+        <result property="currentSalary"    column="current_salary"    />
+        <result property="currentSalaryText"    column="current_salary_text"    />
+        <result property="name"    column="name"    />
+        <result property="companyName"    column="company_name"    />
+        <result property="recruitPosition"    column="recruit_position"    />
+        <result property="semType"    column="sem_type"    />
+        <result property="ip"    column="ip"    />
+        <result property="urlAddress"    column="url_address"    />
+        <result property="clueSource"    column="clue_source"    />
+        <result property="processingStatus"    column="processing_status"    />
+        <result property="inputSource"    column="input_source"    />
+        <result property="createdStime"    column="created_stime"    />
+        <result property="modifiedStime"    column="modified_stime"    />
+        <result property="isDel"    column="is_del"    />
+    </resultMap>
+
+    <sql id="selectPortalSemVo">
+        select sem_id, net_sem_id, mobile_number, gender, hope_position, current_salary, current_salary_text, name, company_name, recruit_position, sem_type, ip, url_address, clue_source, processing_status, input_source, created_stime, modified_stime, is_del from portal_sem
+    </sql>
+
+    <select id="selectPortalSemList" parameterType="PortalSem" resultMap="PortalSemResult">
+        <include refid="selectPortalSemVo"/>
+        <where>
+            <if test="netSemId != null "> and net_sem_id = #{netSemId}</if>
+            <if test="mobileNumber != null  and mobileNumber != ''"> and mobile_number = #{mobileNumber}</if>
+            <if test="gender != null "> and gender = #{gender}</if>
+            <if test="hopePosition != null  and hopePosition != ''"> and hope_position = #{hopePosition}</if>
+            <if test="currentSalary != null "> and current_salary = #{currentSalary}</if>
+            <if test="currentSalaryText != null  and currentSalaryText != ''"> and current_salary_text = #{currentSalaryText}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="companyName != null  and companyName != ''"> and company_name like concat('%', #{companyName}, '%')</if>
+            <if test="recruitPosition != null  and recruitPosition != ''"> and recruit_position = #{recruitPosition}</if>
+            <if test="semType != null "> and sem_type = #{semType}</if>
+            <if test="ip != null  and ip != ''"> and ip = #{ip}</if>
+            <if test="urlAddress != null  and urlAddress != ''"> and url_address = #{urlAddress}</if>
+            <if test="clueSource != null "> and clue_source = #{clueSource}</if>
+            <if test="processingStatus != null "> and processing_status = #{processingStatus}</if>
+            <if test="inputSource != null "> and input_source = #{inputSource}</if>
+            <if test="createdStime != null "> and created_stime = #{createdStime}</if>
+            <if test="modifiedStime != null "> and modified_stime = #{modifiedStime}</if>
+            <if test="isDel != null "> and is_del = #{isDel}</if>
+            and is_del =0
+            order by created_stime desc
+        </where>
+    </select>
+    
+    <select id="selectPortalSemBySemId" parameterType="Long" resultMap="PortalSemResult">
+        <include refid="selectPortalSemVo"/>
+        where sem_id = #{semId}
+    </select>
+        
+    <insert id="insertPortalSem" parameterType="PortalSem" useGeneratedKeys="true" keyProperty="semId">
+        insert into portal_sem
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="semId != null">sem_id,</if>
+            <if test="netSemId != null">net_sem_id,</if>
+            <if test="mobileNumber != null and mobileNumber != ''">mobile_number,</if>
+            <if test="gender != null">gender,</if>
+            <if test="hopePosition != null and hopePosition != ''">hope_position,</if>
+            <if test="currentSalary != null">current_salary,</if>
+            <if test="currentSalaryText != null and currentSalaryText != ''">current_salary_text,</if>
+            <if test="name != null and name != ''">name,</if>
+            <if test="companyName != null and companyName != ''">company_name,</if>
+            <if test="recruitPosition != null and recruitPosition != ''">recruit_position,</if>
+            <if test="semType != null">sem_type,</if>
+            <if test="ip != null and ip != ''">ip,</if>
+            <if test="urlAddress != null and urlAddress != ''">url_address,</if>
+            <if test="clueSource != null">clue_source,</if>
+            <if test="processingStatus != null">processing_status,</if>
+            <if test="inputSource != null">input_source,</if>
+            <if test="createdStime != null">created_stime,</if>
+            <if test="modifiedStime != null">modified_stime,</if>
+            <if test="isDel != null">is_del,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="semId != null">#{semId},</if>
+            <if test="netSemId != null">#{netSemId},</if>
+            <if test="mobileNumber != null and mobileNumber != ''">#{mobileNumber},</if>
+            <if test="gender != null">#{gender},</if>
+            <if test="hopePosition != null and hopePosition != ''">#{hopePosition},</if>
+            <if test="currentSalary != null">#{currentSalary},</if>
+            <if test="currentSalaryText != null and currentSalaryText != ''">#{currentSalaryText},</if>
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="companyName != null and companyName != ''">#{companyName},</if>
+            <if test="recruitPosition != null and recruitPosition != ''">#{recruitPosition},</if>
+            <if test="semType != null">#{semType},</if>
+            <if test="ip != null and ip != ''">#{ip},</if>
+            <if test="urlAddress != null and urlAddress != ''">#{urlAddress},</if>
+            <if test="clueSource != null">#{clueSource},</if>
+            <if test="processingStatus != null">#{processingStatus},</if>
+            <if test="inputSource != null">#{inputSource},</if>
+            <if test="createdStime != null">#{createdStime},</if>
+            <if test="modifiedStime != null">#{modifiedStime},</if>
+            <if test="isDel != null">#{isDel},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePortalSem" parameterType="PortalSem">
+        update portal_sem
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="netSemId != null">net_sem_id = #{netSemId},</if>
+            <if test="mobileNumber != null and mobileNumber != ''">mobile_number = #{mobileNumber},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="hopePosition != null and hopePosition != ''">hope_position = #{hopePosition},</if>
+            <if test="currentSalary != null">current_salary = #{currentSalary},</if>
+            <if test="currentSalaryText != null and currentSalaryText != ''">current_salary_text = #{currentSalaryText},</if>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="companyName != null and companyName != ''">company_name = #{companyName},</if>
+            <if test="recruitPosition != null and recruitPosition != ''">recruit_position = #{recruitPosition},</if>
+            <if test="semType != null">sem_type = #{semType},</if>
+            <if test="ip != null and ip != ''">ip = #{ip},</if>
+            <if test="urlAddress != null and urlAddress != ''">url_address = #{urlAddress},</if>
+            <if test="clueSource != null">clue_source = #{clueSource},</if>
+            <if test="processingStatus != null">processing_status = #{processingStatus},</if>
+            <if test="inputSource != null">input_source = #{inputSource},</if>
+            <if test="createdStime != null">created_stime = #{createdStime},</if>
+            <if test="modifiedStime != null">modified_stime = #{modifiedStime},</if>
+            <if test="isDel != null">is_del = #{isDel},</if>
+        </trim>
+        where sem_id = #{semId}
+    </update>
+
+    <delete id="deletePortalSemBySemId" parameterType="Long">
+        delete from portal_sem where sem_id = #{semId}
+    </delete>
+
+    <delete id="deletePortalSemBySemIds" parameterType="String">
+        delete from portal_sem where sem_id in
+        <foreach item="semId" collection="array" open="(" separator="," close=")">
+            #{semId}
+        </foreach>
+    </delete>
+    <update id="updatePortalSemBySemIds" parameterType="String">
+        update portal_sem
+        set is_del=1
+        where sem_id in
+        <foreach item="semId" collection="array" open="(" separator="," close=")">
+            #{semId}
+        </foreach>
+    </update>
+</mapper>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('线索列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label>手机号码：</label>
+                                <input type="text" name="mobileNumber"/>
+                            </li>
+                            <li>
+                                <label>期望职位：</label>
+                                <input type="text" name="hopePosition"/>
+                            </li>
+                            <!--<li>
+                                <label>当前年薪：</label>
+                                <input type="text" name="currentSalary"/>
+                            </li>-->
+                            <!--<li>
+                                <label>当前年薪：</label>
+                                <input type="text" name="currentSalaryText"/>
+                            </li>-->
+                            <li>
+                                当前年薪：<select name="currentSalary">
+                                <option value="">所有</option>
+                                <option  value="1">20w以下</option>
+                                <option  value="2">20w~30w</option>
+                                <option  value="3">30w~50w</option>
+                                <option  value="4">50w~100w</option>
+                                <option  value="5">100w以上</option>
+                            </select>
+                            </li>
+                            <li>
+                                <label>姓名：</label>
+                                <input type="text" name="name"/>
+                            </li>
+                            <!--<li>
+                                <label>公司名称：</label>
+                                <input type="text" name="companyName"/>
+                            </li>-->
+                            <!--<li>
+                                <label>线索来源：</label>
+                                <input type="text" name="clueSource"/>
+                            </li>
+                            <li>
+                                <label>录入来源：</label>
+                                <input type="text" name="inputSource"/>
+                            </li>
+                            <li>
+                                <label>创建时间：</label>
+                                <input type="text" class="time-input" placeholder="请选择创建时间" name="createdStime"/>
+                            </li>
+                            <li>
+                                <label>修改时间：</label>
+                                <input type="text" class="time-input" placeholder="请选择修改时间" name="modifiedStime"/>
+                            </li>
+                            <li>
+                                <label>1是删除：</label>
+                                <input type="text" name="isDel"/>
+                            </li>-->
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="system:sem:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="system:sem:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="system:sem:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="system:sem:export">
+                    <i class="fa fa-download"></i> 导出
+                </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('system:sem:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('system:sem:remove')}]];
+        var prefix = ctx + "system/sem";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                modalName: "线索",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'semId',
+                    title: '主键',
+                    visible: false
+                },
+
+                {
+                    field: 'mobileNumber',
+                    title: '手机'
+                },
+                {
+                    field: 'gender',
+                    title: '性别',
+                    formatter: function(value, item, index) {
+                        if (value==0) {
+                            return '未知';
+                        }
+                        else if (value==1) {
+                            return '男';
+                        }else if (value==2) {
+                            return '女';
+                        }
+                    }
+                },
+                {
+                    field: 'hopePosition',
+                    title: '期望职位'
+                },
+                /*{
+                    field: 'currentSalary',
+                    title: '当前年薪'
+                },*/
+                {
+                    field: 'currentSalaryText',
+                    title: '当前年薪'
+                },
+                {
+                    field: 'name',
+                    title: '姓名'
+                },
+                /*{
+                    field: 'companyName',
+                    title: '公司名称'
+                },*/
+                /*{
+                    field: 'recruitPosition',
+                    title: '招聘职位'
+                },*/
+                {
+                    field: 'semType',
+                    title: '营销类型',
+                    formatter: function(value, item, index) {
+                        if (value==1) {
+                            return '我要招人';
+                        }
+                        else if (value==2) {
+                            return '我要找工作';
+                        }
+                    }
+                },
+                {
+                    field: 'ip',
+                    title: 'ip地址'
+                },
+                {
+                    field: 'urlAddress',
+                    title: '提交来源地址'
+                },
+                {
+                    field: 'clueSource',
+                    title: '线索来源',
+                    formatter: function(value, item, index) {
+                        if (value==0) {
+                            return '百度sem';
+                        }
+                        else if (value==1) {
+                            return '电话400';
+                        }
+                    }
+                },
+                {
+                    field: 'processingStatus',
+                    title: '处理状态',
+                    formatter: function(value, item, index) {
+                        if (value==0) {
+                            return '未处理';
+                        }
+                        else if (value==1) {
+                            return '';
+                        }
+                    }
+                },
+                {
+                    field: 'inputSource',
+                    title: '录入来源',
+                    formatter: function(value, item, index) {
+                        if (value==0) {
+                            return '自动';
+                        }
+                        else if (value==1) {
+                            return '添加按钮';
+                        }
+                        else if (value==2) {
+                            return 'Excel导入';
+                        }
+                    }
+                },
+                {
+                    field: 'createdStime',
+                    title: '创建时间'
+                },
+                /*{
+                    field: 'modifiedStime',
+                    title: '修改时间'
+                },*/
+                    {
+                        field: 'portalSemFileList',
+                        title: '简历附件',
+                        formatter: function (value, row, index) {
+                            debugger;
+                           var fileNames="";
+                            for(var i=0;i<row.portalSemFileList.length;i++){
+                                fileNames+="<a href='" + row.portalSemFileList[i].fileUrl + "'>'" + row.portalSemFileList[i].fileName + "'</a>"+" ";
+                            }
+                            return fileNames;
+                        }
+                    },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.semId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.semId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        return actions.join('');
+                    }
+                }]
+            };
+            $.table.init(options);
+        });
+
+    </script>
+</body>
+</html>

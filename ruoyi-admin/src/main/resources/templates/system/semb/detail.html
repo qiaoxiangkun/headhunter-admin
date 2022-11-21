@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+	<th:block th:include="include :: header('线索详细')" />
+	<th:block th:include="include :: jsonview-css" />
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+	<form class="form-horizontal m-t" id="signupForm">
+		<div class="form-group">
+			<label class="col-sm-2 control-label">企业名称：</label>
+			<div class="form-control-static" th:text="${operSem.companyName}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">商机线索：</label>
+			<div class="form-control-static" th:text="${operSem.mobileNumber}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">联系人：</label>
+			<div class="form-control-static" th:text="${operSem.name}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">职位：</label>
+			<div class="form-control-static" th:text="${operSem.recruitPosition}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">统一社会信用代码：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.creditCode}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">法人姓名：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.legalpersonName}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">公司类型：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.companyType}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">成立日期：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.establishDate}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">企业状态：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.companyState}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">注册资金(万元)：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.registeredCapital}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">经营范围：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.businessScope}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">注册地址：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.registeredAddress}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">所在行政区划：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.placeDistrict}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">行业分类：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.industryCategory}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">营收规模：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.revenueScale}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">公司简介：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.companyIntroduce}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">通讯地址：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.postalAddress}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">股东：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.shareholder}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">邮箱：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.mailbox}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">团队人数：</label>
+			<div class="form-control-static" th:text="${operSem.portalClientExt==null?'':operSem.portalClientExt.teamPeople}">
+			</div>
+		</div>
+
+
+	</form>
+</div>
+<th:block th:include="include :: footer" />
+<th:block th:include="include :: jsonview-js" />
+<script th:inline="javascript">
+    $(function() {
+        var operParam = [[${operSem.operParam}]];
+        if ($.common.isNotEmpty(operParam) && operParam.length < 2000) {
+            $("#operParam").JSONView(operParam);
+        } else {
+            $("#operParam").text(operParam);
+        }
+        var jsonResult = [[${operSem.jsonResult}]];
+        if ($.common.isNotEmpty(jsonResult) && jsonResult.length < 2000) {
+            $("#jsonResult").JSONView(jsonResult);
+        } else {
+            $("#jsonResult").text(jsonResult);
+        }
+    });
+</script>
+</body>
+</html>

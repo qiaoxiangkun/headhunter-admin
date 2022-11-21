@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.PortalClientExtMapper">
+    
+    <resultMap type="PortalClientExt" id="PortalClientExtResult">
+        <result property="id"    column="id"    />
+        <result property="semId"    column="sem_id"    />
+        <result property="creditCode"    column="credit_code"    />
+        <result property="legalpersonName"    column="legalperson_name"    />
+        <result property="companyType"    column="company_type"    />
+        <result property="establishDate"    column="establish_date"    />
+        <result property="companyState"    column="company_state"    />
+        <result property="registeredCapital"    column="registered_capital"    />
+        <result property="businessScope"    column="business_scope"    />
+        <result property="registeredAddress"    column="registered_address"    />
+        <result property="placeDistrict"    column="place_district"    />
+        <result property="industryCategory"    column="industry_category"    />
+        <result property="revenueScale"    column="revenue_scale"    />
+        <result property="companyIntroduce"    column="company_introduce"    />
+        <result property="companyWebsiteAddress"    column="company_website_address"    />
+        <result property="postalAddress"    column="postal_address"    />
+        <result property="shareholder"    column="shareholder"    />
+        <result property="mailbox"    column="mailbox"    />
+        <result property="teamPeople"    column="team_people"    />
+        <result property="createdStime"    column="created_stime"    />
+        <result property="modifiedStime"    column="modified_stime"    />
+        <result property="isDel"    column="is_del"    />
+    </resultMap>
+
+    <sql id="selectPortalClientExtVo">
+        select id, sem_id, credit_code, legalperson_name, company_type, establish_date, company_state, registered_capital, business_scope, registered_address, place_district, industry_category, revenue_scale, company_introduce, company_website_address, postal_address, shareholder, mailbox, team_people, created_stime, modified_stime, is_del from portal_client_ext
+    </sql>
+
+    <select id="selectPortalClientExtList" parameterType="PortalClientExt" resultMap="PortalClientExtResult">
+        <include refid="selectPortalClientExtVo"/>
+        <where>  
+            <if test="semId != null "> and sem_id = #{semId}</if>
+            <if test="creditCode != null  and creditCode != ''"> and credit_code = #{creditCode}</if>
+            <if test="legalpersonName != null  and legalpersonName != ''"> and legalperson_name like concat('%', #{legalpersonName}, '%')</if>
+            <if test="companyType != null  and companyType != ''"> and company_type = #{companyType}</if>
+            <if test="establishDate != null  and establishDate != ''"> and establish_date = #{establishDate}</if>
+            <if test="companyState != null  and companyState != ''"> and company_state = #{companyState}</if>
+            <if test="registeredCapital != null  and registeredCapital != ''"> and registered_capital = #{registeredCapital}</if>
+            <if test="businessScope != null  and businessScope != ''"> and business_scope = #{businessScope}</if>
+            <if test="registeredAddress != null  and registeredAddress != ''"> and registered_address = #{registeredAddress}</if>
+            <if test="placeDistrict != null  and placeDistrict != ''"> and place_district = #{placeDistrict}</if>
+            <if test="industryCategory != null  and industryCategory != ''"> and industry_category = #{industryCategory}</if>
+            <if test="revenueScale != null  and revenueScale != ''"> and revenue_scale = #{revenueScale}</if>
+            <if test="companyIntroduce != null  and companyIntroduce != ''"> and company_introduce = #{companyIntroduce}</if>
+            <if test="companyWebsiteAddress != null  and companyWebsiteAddress != ''"> and company_website_address = #{companyWebsiteAddress}</if>
+            <if test="postalAddress != null  and postalAddress != ''"> and postal_address = #{postalAddress}</if>
+            <if test="shareholder != null  and shareholder != ''"> and shareholder = #{shareholder}</if>
+            <if test="mailbox != null  and mailbox != ''"> and mailbox = #{mailbox}</if>
+            <if test="teamPeople != null "> and team_people = #{teamPeople}</if>
+            <if test="createdStime != null "> and created_stime = #{createdStime}</if>
+            <if test="modifiedStime != null "> and modified_stime = #{modifiedStime}</if>
+            <if test="isDel != null "> and is_del = #{isDel}</if>
+        </where>
+    </select>
+    
+    <select id="selectPortalClientExtById" parameterType="Long" resultMap="PortalClientExtResult">
+        <include refid="selectPortalClientExtVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertPortalClientExt" parameterType="PortalClientExt" useGeneratedKeys="true" keyProperty="id">
+        insert into portal_client_ext
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="semId != null">sem_id,</if>
+            <if test="creditCode != null and creditCode != ''">credit_code,</if>
+            <if test="legalpersonName != null and legalpersonName != ''">legalperson_name,</if>
+            <if test="companyType != null and companyType != ''">company_type,</if>
+            <if test="establishDate != null and establishDate != ''">establish_date,</if>
+            <if test="companyState != null and companyState != ''">company_state,</if>
+            <if test="registeredCapital != null and registeredCapital != ''">registered_capital,</if>
+            <if test="businessScope != null and businessScope != ''">business_scope,</if>
+            <if test="registeredAddress != null and registeredAddress != ''">registered_address,</if>
+            <if test="placeDistrict != null and placeDistrict != ''">place_district,</if>
+            <if test="industryCategory != null and industryCategory != ''">industry_category,</if>
+            <if test="revenueScale != null and revenueScale != ''">revenue_scale,</if>
+            <if test="companyIntroduce != null and companyIntroduce != ''">company_introduce,</if>
+            <if test="companyWebsiteAddress != null and companyWebsiteAddress != ''">company_website_address,</if>
+            <if test="postalAddress != null and postalAddress != ''">postal_address,</if>
+            <if test="shareholder != null and shareholder != ''">shareholder,</if>
+            <if test="mailbox != null and mailbox != ''">mailbox,</if>
+            <if test="teamPeople != null">team_people,</if>
+            <if test="createdStime != null">created_stime,</if>
+            <if test="modifiedStime != null">modified_stime,</if>
+            <if test="isDel != null">is_del,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="semId != null">#{semId},</if>
+            <if test="creditCode != null and creditCode != ''">#{creditCode},</if>
+            <if test="legalpersonName != null and legalpersonName != ''">#{legalpersonName},</if>
+            <if test="companyType != null and companyType != ''">#{companyType},</if>
+            <if test="establishDate != null and establishDate != ''">#{establishDate},</if>
+            <if test="companyState != null and companyState != ''">#{companyState},</if>
+            <if test="registeredCapital != null and registeredCapital != ''">#{registeredCapital},</if>
+            <if test="businessScope != null and businessScope != ''">#{businessScope},</if>
+            <if test="registeredAddress != null and registeredAddress != ''">#{registeredAddress},</if>
+            <if test="placeDistrict != null and placeDistrict != ''">#{placeDistrict},</if>
+            <if test="industryCategory != null and industryCategory != ''">#{industryCategory},</if>
+            <if test="revenueScale != null and revenueScale != ''">#{revenueScale},</if>
+            <if test="companyIntroduce != null and companyIntroduce != ''">#{companyIntroduce},</if>
+            <if test="companyWebsiteAddress != null and companyWebsiteAddress != ''">#{companyWebsiteAddress},</if>
+            <if test="postalAddress != null and postalAddress != ''">#{postalAddress},</if>
+            <if test="shareholder != null and shareholder != ''">#{shareholder},</if>
+            <if test="mailbox != null and mailbox != ''">#{mailbox},</if>
+            <if test="teamPeople != null">#{teamPeople},</if>
+            <if test="createdStime != null">#{createdStime},</if>
+            <if test="modifiedStime != null">#{modifiedStime},</if>
+            <if test="isDel != null">#{isDel},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePortalClientExt" parameterType="PortalClientExt">
+        update portal_client_ext
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="semId != null">sem_id = #{semId},</if>
+            <if test="creditCode != null and creditCode != ''">credit_code = #{creditCode},</if>
+            <if test="legalpersonName != null and legalpersonName != ''">legalperson_name = #{legalpersonName},</if>
+            <if test="companyType != null and companyType != ''">company_type = #{companyType},</if>
+            <if test="establishDate != null and establishDate != ''">establish_date = #{establishDate},</if>
+            <if test="companyState != null and companyState != ''">company_state = #{companyState},</if>
+            <if test="registeredCapital != null and registeredCapital != ''">registered_capital = #{registeredCapital},</if>
+            <if test="businessScope != null and businessScope != ''">business_scope = #{businessScope},</if>
+            <if test="registeredAddress != null and registeredAddress != ''">registered_address = #{registeredAddress},</if>
+            <if test="placeDistrict != null and placeDistrict != ''">place_district = #{placeDistrict},</if>
+            <if test="industryCategory != null and industryCategory != ''">industry_category = #{industryCategory},</if>
+            <if test="revenueScale != null and revenueScale != ''">revenue_scale = #{revenueScale},</if>
+            <if test="companyIntroduce != null and companyIntroduce != ''">company_introduce = #{companyIntroduce},</if>
+            <if test="companyWebsiteAddress != null and companyWebsiteAddress != ''">company_website_address = #{companyWebsiteAddress},</if>
+            <if test="postalAddress != null and postalAddress != ''">postal_address = #{postalAddress},</if>
+            <if test="shareholder != null and shareholder != ''">shareholder = #{shareholder},</if>
+            <if test="mailbox != null and mailbox != ''">mailbox = #{mailbox},</if>
+            <if test="teamPeople != null">team_people = #{teamPeople},</if>
+            <if test="createdStime != null">created_stime = #{createdStime},</if>
+            <if test="modifiedStime != null">modified_stime = #{modifiedStime},</if>
+            <if test="isDel != null">is_del = #{isDel},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deletePortalClientExtById" parameterType="Long">
+        delete from portal_client_ext where id = #{id}
+    </delete>
+
+    <delete id="deletePortalClientExtByIds" parameterType="String">
+        delete from portal_client_ext where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="selectPortalClientExtBySemId" parameterType="Long" resultMap="PortalClientExtResult">
+        <include refid="selectPortalClientExtVo"/>
+        where sem_id = #{semId}
+    </select>
+</mapper>

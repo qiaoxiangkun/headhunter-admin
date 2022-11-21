@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ruoyi.system.mapper.ClientMapper" >
+  <resultMap id="BaseResultMap" type="com.ruoyi.system.domain.Client" >
+    <id column="ClientId" property="clientid" jdbcType="INTEGER" />
+    <result column="CreaterId" property="createrid" jdbcType="INTEGER" />
+    <result column="CreatedTime" property="createdtime" jdbcType="TIMESTAMP" />
+    <result column="Name" property="name" jdbcType="NVARCHAR" />
+    <result column="StatusId" property="statusid" jdbcType="CHAR" />
+    <result column="SourceId" property="sourceid" jdbcType="CHAR" />
+    <result column="ContactPersonName" property="contactpersonname" jdbcType="NVARCHAR" />
+    <result column="ContactPersonJobTitle" property="contactpersonjobtitle" jdbcType="NVARCHAR" />
+    <result column="ContactPersonEmail" property="contactpersonemail" jdbcType="VARCHAR" />
+    <result column="ContactPersonMobileNumber" property="contactpersonmobilenumber" jdbcType="VARCHAR" />
+    <result column="ContactPersonTelNumber" property="contactpersontelnumber" jdbcType="VARCHAR" />
+    <result column="ContactPersonFaxNumber" property="contactpersonfaxnumber" jdbcType="VARCHAR" />
+    <result column="ContactPersonQQ" property="contactpersonqq" jdbcType="VARCHAR" />
+    <result column="ContactPersonMsn" property="contactpersonmsn" jdbcType="VARCHAR" />
+    <result column="Description" property="description" jdbcType="NVARCHAR" />
+    <result column="Introduction" property="introduction" jdbcType="NVARCHAR" />
+    <result column="Address" property="address" jdbcType="NVARCHAR" />
+    <result column="ZipCode" property="zipcode" jdbcType="VARCHAR" />
+    <result column="WebURL" property="weburl" jdbcType="NVARCHAR" />
+    <result column="ImportantStatus" property="importantstatus" jdbcType="INTEGER" />
+    <result column="LastCommunicationTime" property="lastcommunicationtime" jdbcType="TIMESTAMP" />
+    <result column="ContractDate" property="contractdate" jdbcType="DATE" />
+    <result column="SuspensionDate" property="suspensiondate" jdbcType="DATE" />
+    <result column="ExpirationDate" property="expirationdate" jdbcType="DATE" />
+    <result column="ContractRatio" property="contractratio" jdbcType="DECIMAL" />
+    <result column="PaymentMethod" property="paymentmethod" jdbcType="NVARCHAR" />
+    <result column="EnsurencePeriod" property="ensurenceperiod" jdbcType="INTEGER" />
+    <result column="InitialPayment" property="initialpayment" jdbcType="INTEGER" />
+    <result column="ContractPaymentType" property="contractpaymenttype" jdbcType="INTEGER" />
+    <result column="FixedPayment" property="fixedpayment" jdbcType="DECIMAL" />
+    <result column="QianyueStaffId" property="qianyuestaffid" jdbcType="INTEGER" />
+    <result column="CompanyId" property="companyid" jdbcType="INTEGER" />
+    <result column="ChiefManageStaffId" property="chiefmanagestaffid" jdbcType="INTEGER" />
+    <result column="VipLevel" property="viplevel" jdbcType="INTEGER" />
+    <result column="ContactPersonWeixinNum" property="contactpersonweixinnum" jdbcType="NVARCHAR" />
+    <result column="TransferStatus" property="transferstatus" jdbcType="INTEGER" />
+    <result column="TuijianStaffId" property="tuijianstaffid" jdbcType="INTEGER" />
+    <result column="TuijianStaffName" property="tuijianstaffname" jdbcType="NVARCHAR" />
+    <result column="TransferTime" property="transfertime" jdbcType="TIMESTAMP" />
+    <result column="IsPublicClient" property="ispublicclient" jdbcType="BIT" />
+    <result column="PhoneAreaId" property="phoneareaid" jdbcType="INTEGER" />
+    <result column="PhoneAreaCode" property="phoneareacode" jdbcType="VARCHAR" />
+    <result column="TagKeyWords" property="tagkeywords" jdbcType="NVARCHAR" />
+    <result column="CompanyScale" property="companyscale" jdbcType="NVARCHAR" />
+    <result column="CompanyNature" property="companynature" jdbcType="NVARCHAR" />
+    <result column="CompanyCulture" property="companyculture" jdbcType="NVARCHAR" />
+    <result column="MainBusiness" property="mainbusiness" jdbcType="NVARCHAR" />
+    <result column="CertificationStatus" property="certificationstatus" jdbcType="TINYINT" />
+    <result column="CertificationTime" property="certificationtime" jdbcType="TIMESTAMP" />
+    <result column="RegCapital" property="regcapital" jdbcType="NVARCHAR" />
+    <result column="RegLocation" property="reglocation" jdbcType="NVARCHAR" />
+    <result column="Industry" property="industry" jdbcType="NVARCHAR" />
+    <result column="BusinessScope" property="businessscope" jdbcType="NVARCHAR" />
+    <result column="OrgNumber" property="orgnumber" jdbcType="NVARCHAR" />
+    <result column="EstiblishTime" property="estiblishtime" jdbcType="TIMESTAMP" />
+    <result column="RegStatus" property="regstatus" jdbcType="NVARCHAR" />
+    <result column="LegalPersonName" property="legalpersonname" jdbcType="NVARCHAR" />
+    <result column="CompanyOrgType" property="companyorgtype" jdbcType="NVARCHAR" />
+    <result column="Base" property="base" jdbcType="NVARCHAR" />
+    <result column="CreditCode" property="creditcode" jdbcType="NVARCHAR" />
+    <result column="ParentClientId" property="parentclientid" jdbcType="INTEGER" />
+    <result column="InternalClientId" property="internalclientid" jdbcType="INTEGER" />
+    <result column="CompanyCity" property="companycity" jdbcType="VARCHAR" />
+    <result column="CompanyScaleId" property="companyscaleid" jdbcType="INTEGER" />
+    <result column="CompanyNatureId" property="companynatureid" jdbcType="INTEGER" />
+    <result column="InnerCLient" property="innerclient" jdbcType="INTEGER" />
+    <result column="ClientNo" property="clientno" jdbcType="INTEGER" />
+    <result column="ClientCategory" property="clientcategory" jdbcType="INTEGER" />
+    <result column="CustomerId" property="customerid" jdbcType="NVARCHAR" />
+    <result column="TransactionNo" property="transactionno" jdbcType="NVARCHAR" />
+    <result column="FDDUrl" property="fddurl" jdbcType="NVARCHAR" />
+    <result column="FDDStatus" property="fddstatus" jdbcType="INTEGER" />
+    <result column="ClientUUID" property="clientuuid" jdbcType="NVARCHAR" />
+    <result column="HadEntry" property="hadentry" jdbcType="BIT" />
+    <result column="HadIncome" property="hadincome" jdbcType="BIT" />
+    <result column="SocialStaffNum" property="socialstaffnum" jdbcType="INTEGER" />
+    <result column="StaffNumRange" property="staffnumrange" jdbcType="NVARCHAR" />
+    <result column="IncomeAmountCycle" property="incomeamountcycle" jdbcType="INTEGER" />
+    <result column="U8CCode" property="u8ccode" jdbcType="NVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ClientId, CreaterId, CreatedTime, Name, StatusId, SourceId, ContactPersonName, ContactPersonJobTitle, 
+    ContactPersonEmail, ContactPersonMobileNumber, ContactPersonTelNumber, ContactPersonFaxNumber, 
+    ContactPersonQQ, ContactPersonMsn, Description, Introduction, Address, ZipCode, WebURL, 
+    ImportantStatus, LastCommunicationTime, ContractDate, SuspensionDate, ExpirationDate, 
+    ContractRatio, PaymentMethod, EnsurencePeriod, InitialPayment, ContractPaymentType, 
+    FixedPayment, QianyueStaffId, CompanyId, ChiefManageStaffId, VipLevel, ContactPersonWeixinNum, 
+    TransferStatus, TuijianStaffId, TuijianStaffName, TransferTime, IsPublicClient, PhoneAreaId, 
+    PhoneAreaCode, TagKeyWords, CompanyScale, CompanyNature, CompanyCulture, MainBusiness, 
+    CertificationStatus, CertificationTime, RegCapital, RegLocation, Industry, BusinessScope, 
+    OrgNumber, EstiblishTime, RegStatus, LegalPersonName, CompanyOrgType, Base, CreditCode, 
+    ParentClientId, InternalClientId, CompanyCity, CompanyScaleId, CompanyNatureId, InnerCLient, 
+    ClientNo, ClientCategory, CustomerId, TransactionNo, FDDUrl, FDDStatus, ClientUUID, 
+    HadEntry, HadIncome, SocialStaffNum, StaffNumRange, IncomeAmountCycle, U8CCode
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Client WITH (NOLOCK)
+    where ClientId = #{clientid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Client
+    where ClientId = #{clientid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ruoyi.system.domain.Client" >
+    insert into Client (ClientId, CreaterId, CreatedTime, 
+      Name, StatusId, SourceId, 
+      ContactPersonName, ContactPersonJobTitle, 
+      ContactPersonEmail, ContactPersonMobileNumber, 
+      ContactPersonTelNumber, ContactPersonFaxNumber, 
+      ContactPersonQQ, ContactPersonMsn, Description, 
+      Introduction, Address, ZipCode, 
+      WebURL, ImportantStatus, LastCommunicationTime, 
+      ContractDate, SuspensionDate, ExpirationDate, 
+      ContractRatio, PaymentMethod, EnsurencePeriod, 
+      InitialPayment, ContractPaymentType, FixedPayment, 
+      QianyueStaffId, CompanyId, ChiefManageStaffId, 
+      VipLevel, ContactPersonWeixinNum, TransferStatus, 
+      TuijianStaffId, TuijianStaffName, TransferTime, 
+      IsPublicClient, PhoneAreaId, PhoneAreaCode, 
+      TagKeyWords, CompanyScale, CompanyNature, 
+      CompanyCulture, MainBusiness, CertificationStatus, 
+      CertificationTime, RegCapital, RegLocation, 
+      Industry, BusinessScope, OrgNumber, 
+      EstiblishTime, RegStatus, LegalPersonName, 
+      CompanyOrgType, Base, CreditCode, 
+      ParentClientId, InternalClientId, CompanyCity, 
+      CompanyScaleId, CompanyNatureId, InnerCLient, 
+      ClientNo, ClientCategory, CustomerId, 
+      TransactionNo, FDDUrl, FDDStatus, 
+      ClientUUID, HadEntry, HadIncome, 
+      SocialStaffNum, StaffNumRange, IncomeAmountCycle, 
+      U8CCode)
+    values (#{clientid,jdbcType=INTEGER}, #{createrid,jdbcType=INTEGER}, #{createdtime,jdbcType=TIMESTAMP}, 
+      #{name,jdbcType=NVARCHAR}, #{statusid,jdbcType=CHAR}, #{sourceid,jdbcType=CHAR}, 
+      #{contactpersonname,jdbcType=NVARCHAR}, #{contactpersonjobtitle,jdbcType=NVARCHAR}, 
+      #{contactpersonemail,jdbcType=VARCHAR}, #{contactpersonmobilenumber,jdbcType=VARCHAR}, 
+      #{contactpersontelnumber,jdbcType=VARCHAR}, #{contactpersonfaxnumber,jdbcType=VARCHAR}, 
+      #{contactpersonqq,jdbcType=VARCHAR}, #{contactpersonmsn,jdbcType=VARCHAR}, #{description,jdbcType=NVARCHAR}, 
+      #{introduction,jdbcType=NVARCHAR}, #{address,jdbcType=NVARCHAR}, #{zipcode,jdbcType=VARCHAR}, 
+      #{weburl,jdbcType=NVARCHAR}, #{importantstatus,jdbcType=INTEGER}, #{lastcommunicationtime,jdbcType=TIMESTAMP}, 
+      #{contractdate,jdbcType=DATE}, #{suspensiondate,jdbcType=DATE}, #{expirationdate,jdbcType=DATE}, 
+      #{contractratio,jdbcType=DECIMAL}, #{paymentmethod,jdbcType=NVARCHAR}, #{ensurenceperiod,jdbcType=INTEGER}, 
+      #{initialpayment,jdbcType=INTEGER}, #{contractpaymenttype,jdbcType=INTEGER}, #{fixedpayment,jdbcType=DECIMAL}, 
+      #{qianyuestaffid,jdbcType=INTEGER}, #{companyid,jdbcType=INTEGER}, #{chiefmanagestaffid,jdbcType=INTEGER}, 
+      #{viplevel,jdbcType=INTEGER}, #{contactpersonweixinnum,jdbcType=NVARCHAR}, #{transferstatus,jdbcType=INTEGER}, 
+      #{tuijianstaffid,jdbcType=INTEGER}, #{tuijianstaffname,jdbcType=NVARCHAR}, #{transfertime,jdbcType=TIMESTAMP}, 
+      #{ispublicclient,jdbcType=BIT}, #{phoneareaid,jdbcType=INTEGER}, #{phoneareacode,jdbcType=VARCHAR}, 
+      #{tagkeywords,jdbcType=NVARCHAR}, #{companyscale,jdbcType=NVARCHAR}, #{companynature,jdbcType=NVARCHAR}, 
+      #{companyculture,jdbcType=NVARCHAR}, #{mainbusiness,jdbcType=NVARCHAR}, #{certificationstatus,jdbcType=TINYINT}, 
+      #{certificationtime,jdbcType=TIMESTAMP}, #{regcapital,jdbcType=NVARCHAR}, #{reglocation,jdbcType=NVARCHAR}, 
+      #{industry,jdbcType=NVARCHAR}, #{businessscope,jdbcType=NVARCHAR}, #{orgnumber,jdbcType=NVARCHAR}, 
+      #{estiblishtime,jdbcType=TIMESTAMP}, #{regstatus,jdbcType=NVARCHAR}, #{legalpersonname,jdbcType=NVARCHAR}, 
+      #{companyorgtype,jdbcType=NVARCHAR}, #{base,jdbcType=NVARCHAR}, #{creditcode,jdbcType=NVARCHAR}, 
+      #{parentclientid,jdbcType=INTEGER}, #{internalclientid,jdbcType=INTEGER}, #{companycity,jdbcType=VARCHAR}, 
+      #{companyscaleid,jdbcType=INTEGER}, #{companynatureid,jdbcType=INTEGER}, #{innerclient,jdbcType=INTEGER}, 
+      #{clientno,jdbcType=INTEGER}, #{clientcategory,jdbcType=INTEGER}, #{customerid,jdbcType=NVARCHAR}, 
+      #{transactionno,jdbcType=NVARCHAR}, #{fddurl,jdbcType=NVARCHAR}, #{fddstatus,jdbcType=INTEGER}, 
+      #{clientuuid,jdbcType=NVARCHAR}, #{hadentry,jdbcType=BIT}, #{hadincome,jdbcType=BIT}, 
+      #{socialstaffnum,jdbcType=INTEGER}, #{staffnumrange,jdbcType=NVARCHAR}, #{incomeamountcycle,jdbcType=INTEGER}, 
+      #{u8ccode,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ruoyi.system.domain.Client" >
+    insert into Client
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="clientid != null" >
+        ClientId,
+      </if>
+      <if test="createrid != null" >
+        CreaterId,
+      </if>
+      <if test="createdtime != null" >
+        CreatedTime,
+      </if>
+      <if test="name != null" >
+        Name,
+      </if>
+      <if test="statusid != null" >
+        StatusId,
+      </if>
+      <if test="sourceid != null" >
+        SourceId,
+      </if>
+      <if test="contactpersonname != null" >
+        ContactPersonName,
+      </if>
+      <if test="contactpersonjobtitle != null" >
+        ContactPersonJobTitle,
+      </if>
+      <if test="contactpersonemail != null" >
+        ContactPersonEmail,
+      </if>
+      <if test="contactpersonmobilenumber != null" >
+        ContactPersonMobileNumber,
+      </if>
+      <if test="contactpersontelnumber != null" >
+        ContactPersonTelNumber,
+      </if>
+      <if test="contactpersonfaxnumber != null" >
+        ContactPersonFaxNumber,
+      </if>
+      <if test="contactpersonqq != null" >
+        ContactPersonQQ,
+      </if>
+      <if test="contactpersonmsn != null" >
+        ContactPersonMsn,
+      </if>
+      <if test="description != null" >
+        Description,
+      </if>
+      <if test="introduction != null" >
+        Introduction,
+      </if>
+      <if test="address != null" >
+        Address,
+      </if>
+      <if test="zipcode != null" >
+        ZipCode,
+      </if>
+      <if test="weburl != null" >
+        WebURL,
+      </if>
+      <if test="importantstatus != null" >
+        ImportantStatus,
+      </if>
+      <if test="lastcommunicationtime != null" >
+        LastCommunicationTime,
+      </if>
+      <if test="contractdate != null" >
+        ContractDate,
+      </if>
+      <if test="suspensiondate != null" >
+        SuspensionDate,
+      </if>
+      <if test="expirationdate != null" >
+        ExpirationDate,
+      </if>
+      <if test="contractratio != null" >
+        ContractRatio,
+      </if>
+      <if test="paymentmethod != null" >
+        PaymentMethod,
+      </if>
+      <if test="ensurenceperiod != null" >
+        EnsurencePeriod,
+      </if>
+      <if test="initialpayment != null" >
+        InitialPayment,
+      </if>
+      <if test="contractpaymenttype != null" >
+        ContractPaymentType,
+      </if>
+      <if test="fixedpayment != null" >
+        FixedPayment,
+      </if>
+      <if test="qianyuestaffid != null" >
+        QianyueStaffId,
+      </if>
+      <if test="companyid != null" >
+        CompanyId,
+      </if>
+      <if test="chiefmanagestaffid != null" >
+        ChiefManageStaffId,
+      </if>
+      <if test="viplevel != null" >
+        VipLevel,
+      </if>
+      <if test="contactpersonweixinnum != null" >
+        ContactPersonWeixinNum,
+      </if>
+      <if test="transferstatus != null" >
+        TransferStatus,
+      </if>
+      <if test="tuijianstaffid != null" >
+        TuijianStaffId,
+      </if>
+      <if test="tuijianstaffname != null" >
+        TuijianStaffName,
+      </if>
+      <if test="transfertime != null" >
+        TransferTime,
+      </if>
+      <if test="ispublicclient != null" >
+        IsPublicClient,
+      </if>
+      <if test="phoneareaid != null" >
+        PhoneAreaId,
+      </if>
+      <if test="phoneareacode != null" >
+        PhoneAreaCode,
+      </if>
+      <if test="tagkeywords != null" >
+        TagKeyWords,
+      </if>
+      <if test="companyscale != null" >
+        CompanyScale,
+      </if>
+      <if test="companynature != null" >
+        CompanyNature,
+      </if>
+      <if test="companyculture != null" >
+        CompanyCulture,
+      </if>
+      <if test="mainbusiness != null" >
+        MainBusiness,
+      </if>
+      <if test="certificationstatus != null" >
+        CertificationStatus,
+      </if>
+      <if test="certificationtime != null" >
+        CertificationTime,
+      </if>
+      <if test="regcapital != null" >
+        RegCapital,
+      </if>
+      <if test="reglocation != null" >
+        RegLocation,
+      </if>
+      <if test="industry != null" >
+        Industry,
+      </if>
+      <if test="businessscope != null" >
+        BusinessScope,
+      </if>
+      <if test="orgnumber != null" >
+        OrgNumber,
+      </if>
+      <if test="estiblishtime != null" >
+        EstiblishTime,
+      </if>
+      <if test="regstatus != null" >
+        RegStatus,
+      </if>
+      <if test="legalpersonname != null" >
+        LegalPersonName,
+      </if>
+      <if test="companyorgtype != null" >
+        CompanyOrgType,
+      </if>
+      <if test="base != null" >
+        Base,
+      </if>
+      <if test="creditcode != null" >
+        CreditCode,
+      </if>
+      <if test="parentclientid != null" >
+        ParentClientId,
+      </if>
+      <if test="internalclientid != null" >
+        InternalClientId,
+      </if>
+      <if test="companycity != null" >
+        CompanyCity,
+      </if>
+      <if test="companyscaleid != null" >
+        CompanyScaleId,
+      </if>
+      <if test="companynatureid != null" >
+        CompanyNatureId,
+      </if>
+      <if test="innerclient != null" >
+        InnerCLient,
+      </if>
+      <if test="clientno != null" >
+        ClientNo,
+      </if>
+      <if test="clientcategory != null" >
+        ClientCategory,
+      </if>
+      <if test="customerid != null" >
+        CustomerId,
+      </if>
+      <if test="transactionno != null" >
+        TransactionNo,
+      </if>
+      <if test="fddurl != null" >
+        FDDUrl,
+      </if>
+      <if test="fddstatus != null" >
+        FDDStatus,
+      </if>
+      <if test="clientuuid != null" >
+        ClientUUID,
+      </if>
+      <if test="hadentry != null" >
+        HadEntry,
+      </if>
+      <if test="hadincome != null" >
+        HadIncome,
+      </if>
+      <if test="socialstaffnum != null" >
+        SocialStaffNum,
+      </if>
+      <if test="staffnumrange != null" >
+        StaffNumRange,
+      </if>
+      <if test="incomeamountcycle != null" >
+        IncomeAmountCycle,
+      </if>
+      <if test="u8ccode != null" >
+        U8CCode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="clientid != null" >
+        #{clientid,jdbcType=INTEGER},
+      </if>
+      <if test="createrid != null" >
+        #{createrid,jdbcType=INTEGER},
+      </if>
+      <if test="createdtime != null" >
+        #{createdtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="statusid != null" >
+        #{statusid,jdbcType=CHAR},
+      </if>
+      <if test="sourceid != null" >
+        #{sourceid,jdbcType=CHAR},
+      </if>
+      <if test="contactpersonname != null" >
+        #{contactpersonname,jdbcType=NVARCHAR},
+      </if>
+      <if test="contactpersonjobtitle != null" >
+        #{contactpersonjobtitle,jdbcType=NVARCHAR},
+      </if>
+      <if test="contactpersonemail != null" >
+        #{contactpersonemail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactpersonmobilenumber != null" >
+        #{contactpersonmobilenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contactpersontelnumber != null" >
+        #{contactpersontelnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contactpersonfaxnumber != null" >
+        #{contactpersonfaxnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contactpersonqq != null" >
+        #{contactpersonqq,jdbcType=VARCHAR},
+      </if>
+      <if test="contactpersonmsn != null" >
+        #{contactpersonmsn,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="introduction != null" >
+        #{introduction,jdbcType=NVARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=NVARCHAR},
+      </if>
+      <if test="zipcode != null" >
+        #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="weburl != null" >
+        #{weburl,jdbcType=NVARCHAR},
+      </if>
+      <if test="importantstatus != null" >
+        #{importantstatus,jdbcType=INTEGER},
+      </if>
+      <if test="lastcommunicationtime != null" >
+        #{lastcommunicationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractdate != null" >
+        #{contractdate,jdbcType=DATE},
+      </if>
+      <if test="suspensiondate != null" >
+        #{suspensiondate,jdbcType=DATE},
+      </if>
+      <if test="expirationdate != null" >
+        #{expirationdate,jdbcType=DATE},
+      </if>
+      <if test="contractratio != null" >
+        #{contractratio,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentmethod != null" >
+        #{paymentmethod,jdbcType=NVARCHAR},
+      </if>
+      <if test="ensurenceperiod != null" >
+        #{ensurenceperiod,jdbcType=INTEGER},
+      </if>
+      <if test="initialpayment != null" >
+        #{initialpayment,jdbcType=INTEGER},
+      </if>
+      <if test="contractpaymenttype != null" >
+        #{contractpaymenttype,jdbcType=INTEGER},
+      </if>
+      <if test="fixedpayment != null" >
+        #{fixedpayment,jdbcType=DECIMAL},
+      </if>
+      <if test="qianyuestaffid != null" >
+        #{qianyuestaffid,jdbcType=INTEGER},
+      </if>
+      <if test="companyid != null" >
+        #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="chiefmanagestaffid != null" >
+        #{chiefmanagestaffid,jdbcType=INTEGER},
+      </if>
+      <if test="viplevel != null" >
+        #{viplevel,jdbcType=INTEGER},
+      </if>
+      <if test="contactpersonweixinnum != null" >
+        #{contactpersonweixinnum,jdbcType=NVARCHAR},
+      </if>
+      <if test="transferstatus != null" >
+        #{transferstatus,jdbcType=INTEGER},
+      </if>
+      <if test="tuijianstaffid != null" >
+        #{tuijianstaffid,jdbcType=INTEGER},
+      </if>
+      <if test="tuijianstaffname != null" >
+        #{tuijianstaffname,jdbcType=NVARCHAR},
+      </if>
+      <if test="transfertime != null" >
+        #{transfertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ispublicclient != null" >
+        #{ispublicclient,jdbcType=BIT},
+      </if>
+      <if test="phoneareaid != null" >
+        #{phoneareaid,jdbcType=INTEGER},
+      </if>
+      <if test="phoneareacode != null" >
+        #{phoneareacode,jdbcType=VARCHAR},
+      </if>
+      <if test="tagkeywords != null" >
+        #{tagkeywords,jdbcType=NVARCHAR},
+      </if>
+      <if test="companyscale != null" >
+        #{companyscale,jdbcType=NVARCHAR},
+      </if>
+      <if test="companynature != null" >
+        #{companynature,jdbcType=NVARCHAR},
+      </if>
+      <if test="companyculture != null" >
+        #{companyculture,jdbcType=NVARCHAR},
+      </if>
+      <if test="mainbusiness != null" >
+        #{mainbusiness,jdbcType=NVARCHAR},
+      </if>
+      <if test="certificationstatus != null" >
+        #{certificationstatus,jdbcType=TINYINT},
+      </if>
+      <if test="certificationtime != null" >
+        #{certificationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regcapital != null" >
+        #{regcapital,jdbcType=NVARCHAR},
+      </if>
+      <if test="reglocation != null" >
+        #{reglocation,jdbcType=NVARCHAR},
+      </if>
+      <if test="industry != null" >
+        #{industry,jdbcType=NVARCHAR},
+      </if>
+      <if test="businessscope != null" >
+        #{businessscope,jdbcType=NVARCHAR},
+      </if>
+      <if test="orgnumber != null" >
+        #{orgnumber,jdbcType=NVARCHAR},
+      </if>
+      <if test="estiblishtime != null" >
+        #{estiblishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regstatus != null" >
+        #{regstatus,jdbcType=NVARCHAR},
+      </if>
+      <if test="legalpersonname != null" >
+        #{legalpersonname,jdbcType=NVARCHAR},
+      </if>
+      <if test="companyorgtype != null" >
+        #{companyorgtype,jdbcType=NVARCHAR},
+      </if>
+      <if test="base != null" >
+        #{base,jdbcType=NVARCHAR},
+      </if>
+      <if test="creditcode != null" >
+        #{creditcode,jdbcType=NVARCHAR},
+      </if>
+      <if test="parentclientid != null" >
+        #{parentclientid,jdbcType=INTEGER},
+      </if>
+      <if test="internalclientid != null" >
+        #{internalclientid,jdbcType=INTEGER},
+      </if>
+      <if test="companycity != null" >
+        #{companycity,jdbcType=VARCHAR},
+      </if>
+      <if test="companyscaleid != null" >
+        #{companyscaleid,jdbcType=INTEGER},
+      </if>
+      <if test="companynatureid != null" >
+        #{companynatureid,jdbcType=INTEGER},
+      </if>
+      <if test="innerclient != null" >
+        #{innerclient,jdbcType=INTEGER},
+      </if>
+      <if test="clientno != null" >
+        #{clientno,jdbcType=INTEGER},
+      </if>
+      <if test="clientcategory != null" >
+        #{clientcategory,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        #{customerid,jdbcType=NVARCHAR},
+      </if>
+      <if test="transactionno != null" >
+        #{transactionno,jdbcType=NVARCHAR},
+      </if>
+      <if test="fddurl != null" >
+        #{fddurl,jdbcType=NVARCHAR},
+      </if>
+      <if test="fddstatus != null" >
+        #{fddstatus,jdbcType=INTEGER},
+      </if>
+      <if test="clientuuid != null" >
+        #{clientuuid,jdbcType=NVARCHAR},
+      </if>
+      <if test="hadentry != null" >
+        #{hadentry,jdbcType=BIT},
+      </if>
+      <if test="hadincome != null" >
+        #{hadincome,jdbcType=BIT},
+      </if>
+      <if test="socialstaffnum != null" >
+        #{socialstaffnum,jdbcType=INTEGER},
+      </if>
+      <if test="staffnumrange != null" >
+        #{staffnumrange,jdbcType=NVARCHAR},
+      </if>
+      <if test="incomeamountcycle != null" >
+        #{incomeamountcycle,jdbcType=INTEGER},
+      </if>
+      <if test="u8ccode != null" >
+        #{u8ccode,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.system.domain.Client" >
+    update Client
+    <set >
+      <if test="createrid != null" >
+        CreaterId = #{createrid,jdbcType=INTEGER},
+      </if>
+      <if test="createdtime != null" >
+        CreatedTime = #{createdtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        Name = #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="statusid != null" >
+        StatusId = #{statusid,jdbcType=CHAR},
+      </if>
+      <if test="sourceid != null" >
+        SourceId = #{sourceid,jdbcType=CHAR},
+      </if>
+      <if test="contactpersonname != null" >
+        ContactPersonName = #{contactpersonname,jdbcType=NVARCHAR},
+      </if>
+      <if test="contactpersonjobtitle != null" >
+        ContactPersonJobTitle = #{contactpersonjobtitle,jdbcType=NVARCHAR},
+      </if>
+      <if test="contactpersonemail != null" >
+        ContactPersonEmail = #{contactpersonemail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactpersonmobilenumber != null" >
+        ContactPersonMobileNumber = #{contactpersonmobilenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contactpersontelnumber != null" >
+        ContactPersonTelNumber = #{contactpersontelnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contactpersonfaxnumber != null" >
+        ContactPersonFaxNumber = #{contactpersonfaxnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contactpersonqq != null" >
+        ContactPersonQQ = #{contactpersonqq,jdbcType=VARCHAR},
+      </if>
+      <if test="contactpersonmsn != null" >
+        ContactPersonMsn = #{contactpersonmsn,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        Description = #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="introduction != null" >
+        Introduction = #{introduction,jdbcType=NVARCHAR},
+      </if>
+      <if test="address != null" >
+        Address = #{address,jdbcType=NVARCHAR},
+      </if>
+      <if test="zipcode != null" >
+        ZipCode = #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="weburl != null" >
+        WebURL = #{weburl,jdbcType=NVARCHAR},
+      </if>
+      <if test="importantstatus != null" >
+        ImportantStatus = #{importantstatus,jdbcType=INTEGER},
+      </if>
+      <if test="lastcommunicationtime != null" >
+        LastCommunicationTime = #{lastcommunicationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractdate != null" >
+        ContractDate = #{contractdate,jdbcType=DATE},
+      </if>
+      <if test="suspensiondate != null" >
+        SuspensionDate = #{suspensiondate,jdbcType=DATE},
+      </if>
+      <if test="expirationdate != null" >
+        ExpirationDate = #{expirationdate,jdbcType=DATE},
+      </if>
+      <if test="contractratio != null" >
+        ContractRatio = #{contractratio,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentmethod != null" >
+        PaymentMethod = #{paymentmethod,jdbcType=NVARCHAR},
+      </if>
+      <if test="ensurenceperiod != null" >
+        EnsurencePeriod = #{ensurenceperiod,jdbcType=INTEGER},
+      </if>
+      <if test="initialpayment != null" >
+        InitialPayment = #{initialpayment,jdbcType=INTEGER},
+      </if>
+      <if test="contractpaymenttype != null" >
+        ContractPaymentType = #{contractpaymenttype,jdbcType=INTEGER},
+      </if>
+      <if test="fixedpayment != null" >
+        FixedPayment = #{fixedpayment,jdbcType=DECIMAL},
+      </if>
+      <if test="qianyuestaffid != null" >
+        QianyueStaffId = #{qianyuestaffid,jdbcType=INTEGER},
+      </if>
+      <if test="companyid != null" >
+        CompanyId = #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="chiefmanagestaffid != null" >
+        ChiefManageStaffId = #{chiefmanagestaffid,jdbcType=INTEGER},
+      </if>
+      <if test="viplevel != null" >
+        VipLevel = #{viplevel,jdbcType=INTEGER},
+      </if>
+      <if test="contactpersonweixinnum != null" >
+        ContactPersonWeixinNum = #{contactpersonweixinnum,jdbcType=NVARCHAR},
+      </if>
+      <if test="transferstatus != null" >
+        TransferStatus = #{transferstatus,jdbcType=INTEGER},
+      </if>
+      <if test="tuijianstaffid != null" >
+        TuijianStaffId = #{tuijianstaffid,jdbcType=INTEGER},
+      </if>
+      <if test="tuijianstaffname != null" >
+        TuijianStaffName = #{tuijianstaffname,jdbcType=NVARCHAR},
+      </if>
+      <if test="transfertime != null" >
+        TransferTime = #{transfertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ispublicclient != null" >
+        IsPublicClient = #{ispublicclient,jdbcType=BIT},
+      </if>
+      <if test="phoneareaid != null" >
+        PhoneAreaId = #{phoneareaid,jdbcType=INTEGER},
+      </if>
+      <if test="phoneareacode != null" >
+        PhoneAreaCode = #{phoneareacode,jdbcType=VARCHAR},
+      </if>
+      <if test="tagkeywords != null" >
+        TagKeyWords = #{tagkeywords,jdbcType=NVARCHAR},
+      </if>
+      <if test="companyscale != null" >
+        CompanyScale = #{companyscale,jdbcType=NVARCHAR},
+      </if>
+      <if test="companynature != null" >
+        CompanyNature = #{companynature,jdbcType=NVARCHAR},
+      </if>
+      <if test="companyculture != null" >
+        CompanyCulture = #{companyculture,jdbcType=NVARCHAR},
+      </if>
+      <if test="mainbusiness != null" >
+        MainBusiness = #{mainbusiness,jdbcType=NVARCHAR},
+      </if>
+      <if test="certificationstatus != null" >
+        CertificationStatus = #{certificationstatus,jdbcType=TINYINT},
+      </if>
+      <if test="certificationtime != null" >
+        CertificationTime = #{certificationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regcapital != null" >
+        RegCapital = #{regcapital,jdbcType=NVARCHAR},
+      </if>
+      <if test="reglocation != null" >
+        RegLocation = #{reglocation,jdbcType=NVARCHAR},
+      </if>
+      <if test="industry != null" >
+        Industry = #{industry,jdbcType=NVARCHAR},
+      </if>
+      <if test="businessscope != null" >
+        BusinessScope = #{businessscope,jdbcType=NVARCHAR},
+      </if>
+      <if test="orgnumber != null" >
+        OrgNumber = #{orgnumber,jdbcType=NVARCHAR},
+      </if>
+      <if test="estiblishtime != null" >
+        EstiblishTime = #{estiblishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regstatus != null" >
+        RegStatus = #{regstatus,jdbcType=NVARCHAR},
+      </if>
+      <if test="legalpersonname != null" >
+        LegalPersonName = #{legalpersonname,jdbcType=NVARCHAR},
+      </if>
+      <if test="companyorgtype != null" >
+        CompanyOrgType = #{companyorgtype,jdbcType=NVARCHAR},
+      </if>
+      <if test="base != null" >
+        Base = #{base,jdbcType=NVARCHAR},
+      </if>
+      <if test="creditcode != null" >
+        CreditCode = #{creditcode,jdbcType=NVARCHAR},
+      </if>
+      <if test="parentclientid != null" >
+        ParentClientId = #{parentclientid,jdbcType=INTEGER},
+      </if>
+      <if test="internalclientid != null" >
+        InternalClientId = #{internalclientid,jdbcType=INTEGER},
+      </if>
+      <if test="companycity != null" >
+        CompanyCity = #{companycity,jdbcType=VARCHAR},
+      </if>
+      <if test="companyscaleid != null" >
+        CompanyScaleId = #{companyscaleid,jdbcType=INTEGER},
+      </if>
+      <if test="companynatureid != null" >
+        CompanyNatureId = #{companynatureid,jdbcType=INTEGER},
+      </if>
+      <if test="innerclient != null" >
+        InnerCLient = #{innerclient,jdbcType=INTEGER},
+      </if>
+      <if test="clientno != null" >
+        ClientNo = #{clientno,jdbcType=INTEGER},
+      </if>
+      <if test="clientcategory != null" >
+        ClientCategory = #{clientcategory,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        CustomerId = #{customerid,jdbcType=NVARCHAR},
+      </if>
+      <if test="transactionno != null" >
+        TransactionNo = #{transactionno,jdbcType=NVARCHAR},
+      </if>
+      <if test="fddurl != null" >
+        FDDUrl = #{fddurl,jdbcType=NVARCHAR},
+      </if>
+      <if test="fddstatus != null" >
+        FDDStatus = #{fddstatus,jdbcType=INTEGER},
+      </if>
+      <if test="clientuuid != null" >
+        ClientUUID = #{clientuuid,jdbcType=NVARCHAR},
+      </if>
+      <if test="hadentry != null" >
+        HadEntry = #{hadentry,jdbcType=BIT},
+      </if>
+      <if test="hadincome != null" >
+        HadIncome = #{hadincome,jdbcType=BIT},
+      </if>
+      <if test="socialstaffnum != null" >
+        SocialStaffNum = #{socialstaffnum,jdbcType=INTEGER},
+      </if>
+      <if test="staffnumrange != null" >
+        StaffNumRange = #{staffnumrange,jdbcType=NVARCHAR},
+      </if>
+      <if test="incomeamountcycle != null" >
+        IncomeAmountCycle = #{incomeamountcycle,jdbcType=INTEGER},
+      </if>
+      <if test="u8ccode != null" >
+        U8CCode = #{u8ccode,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where ClientId = #{clientid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ruoyi.system.domain.Client" >
+    update Client
+    set CreaterId = #{createrid,jdbcType=INTEGER},
+      CreatedTime = #{createdtime,jdbcType=TIMESTAMP},
+      Name = #{name,jdbcType=NVARCHAR},
+      StatusId = #{statusid,jdbcType=CHAR},
+      SourceId = #{sourceid,jdbcType=CHAR},
+      ContactPersonName = #{contactpersonname,jdbcType=NVARCHAR},
+      ContactPersonJobTitle = #{contactpersonjobtitle,jdbcType=NVARCHAR},
+      ContactPersonEmail = #{contactpersonemail,jdbcType=VARCHAR},
+      ContactPersonMobileNumber = #{contactpersonmobilenumber,jdbcType=VARCHAR},
+      ContactPersonTelNumber = #{contactpersontelnumber,jdbcType=VARCHAR},
+      ContactPersonFaxNumber = #{contactpersonfaxnumber,jdbcType=VARCHAR},
+      ContactPersonQQ = #{contactpersonqq,jdbcType=VARCHAR},
+      ContactPersonMsn = #{contactpersonmsn,jdbcType=VARCHAR},
+      Description = #{description,jdbcType=NVARCHAR},
+      Introduction = #{introduction,jdbcType=NVARCHAR},
+      Address = #{address,jdbcType=NVARCHAR},
+      ZipCode = #{zipcode,jdbcType=VARCHAR},
+      WebURL = #{weburl,jdbcType=NVARCHAR},
+      ImportantStatus = #{importantstatus,jdbcType=INTEGER},
+      LastCommunicationTime = #{lastcommunicationtime,jdbcType=TIMESTAMP},
+      ContractDate = #{contractdate,jdbcType=DATE},
+      SuspensionDate = #{suspensiondate,jdbcType=DATE},
+      ExpirationDate = #{expirationdate,jdbcType=DATE},
+      ContractRatio = #{contractratio,jdbcType=DECIMAL},
+      PaymentMethod = #{paymentmethod,jdbcType=NVARCHAR},
+      EnsurencePeriod = #{ensurenceperiod,jdbcType=INTEGER},
+      InitialPayment = #{initialpayment,jdbcType=INTEGER},
+      ContractPaymentType = #{contractpaymenttype,jdbcType=INTEGER},
+      FixedPayment = #{fixedpayment,jdbcType=DECIMAL},
+      QianyueStaffId = #{qianyuestaffid,jdbcType=INTEGER},
+      CompanyId = #{companyid,jdbcType=INTEGER},
+      ChiefManageStaffId = #{chiefmanagestaffid,jdbcType=INTEGER},
+      VipLevel = #{viplevel,jdbcType=INTEGER},
+      ContactPersonWeixinNum = #{contactpersonweixinnum,jdbcType=NVARCHAR},
+      TransferStatus = #{transferstatus,jdbcType=INTEGER},
+      TuijianStaffId = #{tuijianstaffid,jdbcType=INTEGER},
+      TuijianStaffName = #{tuijianstaffname,jdbcType=NVARCHAR},
+      TransferTime = #{transfertime,jdbcType=TIMESTAMP},
+      IsPublicClient = #{ispublicclient,jdbcType=BIT},
+      PhoneAreaId = #{phoneareaid,jdbcType=INTEGER},
+      PhoneAreaCode = #{phoneareacode,jdbcType=VARCHAR},
+      TagKeyWords = #{tagkeywords,jdbcType=NVARCHAR},
+      CompanyScale = #{companyscale,jdbcType=NVARCHAR},
+      CompanyNature = #{companynature,jdbcType=NVARCHAR},
+      CompanyCulture = #{companyculture,jdbcType=NVARCHAR},
+      MainBusiness = #{mainbusiness,jdbcType=NVARCHAR},
+      CertificationStatus = #{certificationstatus,jdbcType=TINYINT},
+      CertificationTime = #{certificationtime,jdbcType=TIMESTAMP},
+      RegCapital = #{regcapital,jdbcType=NVARCHAR},
+      RegLocation = #{reglocation,jdbcType=NVARCHAR},
+      Industry = #{industry,jdbcType=NVARCHAR},
+      BusinessScope = #{businessscope,jdbcType=NVARCHAR},
+      OrgNumber = #{orgnumber,jdbcType=NVARCHAR},
+      EstiblishTime = #{estiblishtime,jdbcType=TIMESTAMP},
+      RegStatus = #{regstatus,jdbcType=NVARCHAR},
+      LegalPersonName = #{legalpersonname,jdbcType=NVARCHAR},
+      CompanyOrgType = #{companyorgtype,jdbcType=NVARCHAR},
+      Base = #{base,jdbcType=NVARCHAR},
+      CreditCode = #{creditcode,jdbcType=NVARCHAR},
+      ParentClientId = #{parentclientid,jdbcType=INTEGER},
+      InternalClientId = #{internalclientid,jdbcType=INTEGER},
+      CompanyCity = #{companycity,jdbcType=VARCHAR},
+      CompanyScaleId = #{companyscaleid,jdbcType=INTEGER},
+      CompanyNatureId = #{companynatureid,jdbcType=INTEGER},
+      InnerCLient = #{innerclient,jdbcType=INTEGER},
+      ClientNo = #{clientno,jdbcType=INTEGER},
+      ClientCategory = #{clientcategory,jdbcType=INTEGER},
+      CustomerId = #{customerid,jdbcType=NVARCHAR},
+      TransactionNo = #{transactionno,jdbcType=NVARCHAR},
+      FDDUrl = #{fddurl,jdbcType=NVARCHAR},
+      FDDStatus = #{fddstatus,jdbcType=INTEGER},
+      ClientUUID = #{clientuuid,jdbcType=NVARCHAR},
+      HadEntry = #{hadentry,jdbcType=BIT},
+      HadIncome = #{hadincome,jdbcType=BIT},
+      SocialStaffNum = #{socialstaffnum,jdbcType=INTEGER},
+      StaffNumRange = #{staffnumrange,jdbcType=NVARCHAR},
+      IncomeAmountCycle = #{incomeamountcycle,jdbcType=INTEGER},
+      U8CCode = #{u8ccode,jdbcType=NVARCHAR}
+    where ClientId = #{clientid,jdbcType=INTEGER}
+  </update>
+  <select id="getClientByCompanyName" resultMap="BaseResultMap" parameterType="string" >
+    select
+    <include refid="Base_Column_List" />
+    from Client
+    where Name = #{companyName}
+  </select>
+</mapper>
